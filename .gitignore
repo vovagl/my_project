@@ -29,3 +29,6 @@ node_modules/
 
 # Optional: Bitrix upload folder (if large files, can skip for Git)
 /upload/
+
+# SQL dumps (optional)
+task_1_db.sql
