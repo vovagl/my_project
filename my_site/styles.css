@@ -11,13 +11,17 @@ header{
     justify-content: center;
     margin: 20px 0;
 }
+main h1{
+    text-align: center;
+    margin-bottom: 40px;
+}
 .news-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 .news-item a{
-    color: blue;
+    text-decoration: none;
 }
 .news-item {
     /* display: flex; */
