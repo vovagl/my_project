@@ -1,4 +1,4 @@
-<?php $arResult["LIST_PAGE_URL"] = ""; ?>
+
 <?php
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 ?>
@@ -20,5 +20,5 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
     <div class="news-text">
         <?= $arResult["DETAIL_TEXT"] ?>
     </div> 
-    <!-- <a href="/news/" class="back-link">← Назад к списку</a> -->
+    <a href="/" class="back-link">Назад</a>
 </div>

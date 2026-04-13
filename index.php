@@ -1,7 +1,7 @@
 
 <?php
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+require($_SERVER["DOCUMENT_ROOT"]."/my_project/bitrix/header.php");
 ?>
 <?php
 // ini_set('display_errors', 1);
@@ -50,5 +50,5 @@ $APPLICATION->IncludeComponent(
 -->
 
 <?php
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+require($_SERVER["DOCUMENT_ROOT"]."/my_project/bitrix/footer.php");
 ?>
