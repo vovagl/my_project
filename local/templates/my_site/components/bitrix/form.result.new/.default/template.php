@@ -1,32 +1,33 @@
+
 <?php
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Связаться");
 
-CModule::IncludeModule("iblock");
+$formId = 2;
+ 
 $success = ($_GET["success"] ?? "") === "Y";
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && check_bitrix_sessid()) {
+   CModule::IncludeModule("form"); 
 
-    $el = new CIBlockElement;
+    $arValues = [
+        "form_text_7" => $_POST["medicine_name"],
+        "form_text_12" => $_POST["medicine_company"],
+        "form_email_8" => $_POST["medicine_email"],
+        "form_text_11" => $_POST["medicine_phone"],
+        "form_textarea_10" => $_POST["medicine_message"],
+    ];
+    $RESULT_ID = CFormResult::Add($formId, $arValues);
 
-    $PROP = array(
-        "COMPANY" => $_POST["medicine_company"],
-        "EMAIL" => $_POST["medicine_email"],
-        "PHONE" => $_POST["medicine_phone"],
-        "MESSAGE" => $_POST["medicine_message"],
-    );
-
-    $arLoadProductArray = array(
-        "IBLOCK_ID" => 3, 
-        "NAME" => trim($_POST["medicine_name"]),
-        "ACTIVE" => "Y",
-        "PROPERTY_VALUES" => $PROP,
-    );
-    LocalRedirect($APPLICATION->GetCurPageParam("success=Y", ["success"]));
-    die();
+    if ($RESULT_ID)    
+    {
+        CFormCRM::onResultAdded($formId, $RESULT_ID);
+        CFormResult::SetEvent($RESULT_ID);           
+        CFormResult::Mail($RESULT_ID);               
+        LocalRedirect($APPLICATION->GetCurPageParam("success=Y", ["success"]));
+        exit();
+    }
 }
 ?>
-
 
 <div class="contact-form">
     <div class="contact-form__head">
