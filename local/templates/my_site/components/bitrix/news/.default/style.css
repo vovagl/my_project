@@ -42,12 +42,19 @@ main h1{
 }
 
 .back-link {
-    display: inline-block;
-    margin-top: 20px;
     text-decoration: none;
 }
 footer{
     display: flex;
     justify-content: center;
     margin: 20px 0;
+}
+.parent {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+.back-news{
+    text-decoration: none;
+    font-size: 22px;
 }

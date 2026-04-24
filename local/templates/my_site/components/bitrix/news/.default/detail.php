@@ -71,7 +71,10 @@ $ElementID = $APPLICATION->IncludeComponent(
 	],
 	$component
 );?>
-<!-- <p><a href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>"><?=GetMessage("T_NEWS_DETAIL_BACK")?></a></p> -->
+<div class="parent">
+<a href="/" class="back-link">На главную</a>	
+<a class="back-news" href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>"><?=GetMessage("T_NEWS_DETAIL_BACK")?>Все новости</a>
+</div>
 <?if($arParams["USE_RATING"]=="Y" && $ElementID):?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:iblock.vote",
