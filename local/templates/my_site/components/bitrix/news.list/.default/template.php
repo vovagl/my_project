@@ -15,7 +15,6 @@ $this->addExternalCss($templateFolder . "/style.css");
                     <img src="/images/article-item-bg-1.jpg" alt="">
                 <?php endif; ?>
             </div>
-
             <div class="article-item__wrapper">
                 <div class="article-item__title">
                     <?= htmlspecialchars($item["NAME"]) ?>

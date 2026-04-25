@@ -7,9 +7,9 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
     [
         "IBLOCK_ID" => 1,
         "IBLOCK_TYPE" => "news",
-        "NEWS_COUNT" => 1,
+        "NEWS_COUNT" => 10,
         "SEF_MODE" => "Y",
-        "SEF_FOLDER" => "/news/",
+        "SEF_FOLDER" => "/",
 
         "SEF_URL_TEMPLATES" => [
             "news" => "",
