@@ -4,7 +4,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 $APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    ".default",
+    "template",
     [
         "IBLOCK_ID" => $arParams["IBLOCK_ID"],
         "NEWS_COUNT" => $arParams["NEWS_COUNT"],
