@@ -1,0 +1,48 @@
+.vacancy-detail {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    font-family: Arial, sans-serif;
+}
+
+.vacancy-detail h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.vacancy-meta p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.vacancy-meta .salary {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2a7be4;
+    margin-top: 10px;
+}
+.vacancy-detail h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.duties {
+    list-style: none;
+}
+
+.duties li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #2a7be4;
+    font-weight: bold;
+}
