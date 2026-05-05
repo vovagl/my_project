@@ -1,1 +1,2 @@
+<? 
 \Bitrix\Main\Loader::includeModule("dev.site");
