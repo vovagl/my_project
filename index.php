@@ -4,6 +4,15 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 global $APPLICATION;
 
 $APPLICATION->IncludeComponent(
+    "custom:news.grouped",
+    "",
+    [
+        "IBLOCK_TYPE" => "news",
+        "FILTER_NAME" => "arrFilter"
+    ]
+);
+
+$APPLICATION->IncludeComponent(
     "bitrix:news.list",
     "news_block",
     [

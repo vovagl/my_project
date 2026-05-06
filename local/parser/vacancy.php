@@ -6,7 +6,16 @@ use Bitrix\Main\Loader;
 
 Loader::includeModule("iblock");
 
-$IBLOCK_ID = 7;
+$iblock = CIBlock::GetList([], [
+    "CODE" => "vacancies",
+    "TYPE" => "CONTENT"
+])->Fetch();
+
+if (!$iblock) {
+    die("IBLOCK not found");
+}
+
+$IBLOCK_ID = (int)$iblock["ID"];
 
 $file = $_SERVER['DOCUMENT_ROOT'] . "/local/parser/vacancy.csv";
 
