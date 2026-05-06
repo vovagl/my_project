@@ -8,8 +8,9 @@
             <?php foreach ($items as $item): ?>
                 <li class="news-item">
                     <a href="<?= $item['DETAIL_PAGE_URL'] ?>">
-                        <?= $item['NAME'] ?>
+                        <?= $item['NAME'] ?> 
                     </a>
+                    
                     <p><?= $item['PREVIEW_TEXT'] ?></p>
                 </li>
             <?php endforeach; ?>

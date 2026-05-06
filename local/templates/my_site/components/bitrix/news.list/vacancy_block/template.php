@@ -9,7 +9,7 @@ $itemsPerPage = 20;
 
 $totalCount = CIBlockElement::GetList(
     [],
-    ["IBLOCK_ID" => 7, "ACTIVE" => "Y"],
+    ["IBLOCK_ID" => $arParams["IBLOCK_ID"], "ACTIVE" => "Y"],
     [],
     false,
     ["ID"]
@@ -23,7 +23,7 @@ $arNavParams = [
 
 $res = CIBlockElement::GetList(
     ["ID" => "DESC"],
-    ["IBLOCK_ID" => 7, "ACTIVE" => "Y"],
+    ["IBLOCK_ID" => $arParams["IBLOCK_ID"], "ACTIVE" => "Y"],
     false,
     $arNavParams,
     ["ID", "NAME"]

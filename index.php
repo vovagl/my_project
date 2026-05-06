@@ -8,7 +8,7 @@ $APPLICATION->IncludeComponent(
     "",
     [
         "IBLOCK_TYPE" => "news",
-        "FILTER_NAME" => "arrFilter"
+        "FILTER_NAME" => "arrFilter",
     ]
 );
 
