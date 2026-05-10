@@ -21,7 +21,7 @@ $this->addExternalCss($templateFolder . "/style.css");
 
                 <div class="article-item__content">
                     <small><?= $item["ACTIVE_FROM"] ?></small><br>
-                    <?= $item["PREVIEW_TEXT"] ?>
+                    <?= $item["PREVIEW_TEXT"] ?>    
                 </div>
             </div>
         </a> 

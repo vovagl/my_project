@@ -100,7 +100,10 @@ class UfType
     {
         if (is_array($value))
         {
-            return json_encode($value, JSON_UNESCAPED_UNICODE);
+            return json_encode(
+                $value,
+                 JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+                 );
         }
 
         return $value;
