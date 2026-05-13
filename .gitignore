@@ -32,3 +32,17 @@ node_modules/
 
 # SQL dumps (optional)
 task_1_db.sql
+
+# зависимости Composer
+/vendor/
+
+# конфиг с токеном
+config.php
+
+# системные файлы
+.DS_Store
+.idea
+.vscode
+
+# временные файлы
+*.log
