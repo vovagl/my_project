@@ -39,11 +39,12 @@ $items = $data['_embedded']['items'] ?? [];
             <th>Имя</th>
             <th>Размер</th>
             <th>Действия</th>
+            <th>Переименование</th>
         </tr>
 
         <?php if (!empty($items)): ?>
             <?php foreach ($items as $item): ?>
-                <?php if ($item['type'] === 'file'): ?>
+                <?php if ($item['type'] === 'file'): ?>                    
                     <tr>
                         <td><?= htmlspecialchars($item['name']) ?></td>
                         <td><?= round($item['size'] / 1024, 2) ?> KB</td>
@@ -54,6 +55,13 @@ $items = $data['_embedded']['items'] ?? [];
                                onclick="return confirm('Удалить файл?')">
                                 Удалить
                             </a>
+                        </td>
+                        <td>
+                            <form action="rename.php" method="POST" style="display:flex; gap:5px;">
+                                <input type="hidden" name="path" value="<?= $item['path'] ?>">
+                                <input type="text" name="new_name" placeholder="Новое имя" required>
+                                <button type="submit">OK</button>
+                            </form>
                         </td>
                     </tr>
                 <?php endif; ?>

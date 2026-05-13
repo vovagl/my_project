@@ -3,6 +3,7 @@
 namespace App;
 
 use GuzzleHttp\Client;
+use Exception;
 
 class YandexDisk
 {
@@ -24,36 +25,58 @@ class YandexDisk
     public function listFiles(string $path = '/')
     {
         $response = $this->http->get('resources', [
-            'query' => ['path' => $path]
+            'query' => [
+                'path' => $path
+            ]
         ]);
 
-        return json_decode($response->getBody(), true);
+        return json_decode($response->getBody()->getContents(), true);
     }
 
     public function upload(string $diskPath, string $filePath)
-{
-    $response = $this->http->get('resources/upload', [
-        'query' => [
-            'path' => $diskPath,
-            'overwrite' => 'true'
-        ]
-    ]);
+    {
+        if (!file_exists($filePath)) {
+            throw new Exception("Файл не найден: {$filePath}");
+        }
 
-    $data = json_decode($response->getBody()->getContents(), true);
+        $response = $this->http->get('resources/upload', [
+            'query' => [
+                'path' => $diskPath,
+                'overwrite' => 'true'
+            ]
+        ]);
 
-    if (!isset($data['href'])) {
-        throw new Exception('Не удалось получить upload URL');
+        $data = json_decode($response->getBody()->getContents(), true);
+
+        if (!isset($data['href'])) {
+            throw new Exception('Не удалось получить upload URL');
+        }
+
+        $this->http->put($data['href'], [
+            'body' => fopen($filePath, 'r')
+        ]);
     }
-
-    $this->http->put($data['href'], [
-        'body' => fopen($filePath, 'r')
-    ]);
-}
 
     public function delete(string $path)
     {
         $this->http->delete('resources', [
-            'query' => ['path' => $path, 'permanently' => true]
+            'query' => [
+                'path' => $path,
+                'permanently' => true
+            ]
         ]);
+    }
+
+    public function rename(string $from, string $to)
+    {
+        $response = $this->http->post('resources/move', [
+            'query' => [
+                'from' => $from,
+                'path' => $to,
+                'overwrite' => 'true'
+            ]
+        ]);
+
+        return json_decode($response->getBody()->getContents(), true);
     }
 }
